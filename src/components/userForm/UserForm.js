@@ -1,23 +1,24 @@
 import { getDataFromForm } from "../../services/formUtils";
 import React from "react";
-import NameGroup from "./NameGroup";
-import BirthdayGroup from "./BirthdayGroup";
-import SubmitButton from "./SubmitButton";
+import NameGroup from "./Name";
+import BirthdayGroup from "./Birthday";
+import SubmitButton from "./SubmitButton/SubmitButton";
 
-function UserForm(props) {
-  return (
-    <form
-      className="user-form"
-      onSubmit={e => {
-        e.preventDefault();
-        props.formData(getDataFromForm(e.target));
-      }}
-    >
-      <NameGroup />
-      <BirthdayGroup />
-      <SubmitButton />
-    </form>
-  );
+class UserForm extends React.Component {
+  onSubmitEvent = e => {
+    e.preventDefault();
+    this.props.formData(getDataFromForm(e.target));
+  };
+
+  render() {
+    return (
+      <form className="user-form" onSubmit={this.onSubmitEvent}>
+        <NameGroup />
+        <BirthdayGroup />
+        <SubmitButton />
+      </form>
+    );
+  }
 }
 
 export default UserForm;
