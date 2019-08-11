@@ -1,7 +1,8 @@
+import React from "react";
+import PropTypes from "prop-types";
 import "./index.css";
 import UserForm from "./components/UserForm";
 import Greetings from "./components/Greetings";
-import React from "react";
 
 export default class App extends React.Component {
   state = {
@@ -35,3 +36,8 @@ export default class App extends React.Component {
     return <div>{StateComponent}</div>;
   }
 }
+App.propTypes = {
+  onSubmit: PropTypes.func,
+  onBack: PropTypes.func,
+  data: PropTypes.object
+};
