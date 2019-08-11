@@ -6,31 +6,27 @@ import Greetings from "./components/Greetings";
 
 export default class App extends React.Component {
   state = {
-    intialState: "UserForm"
+    showGreetings: false,
+    data: {}
   };
 
-  onSubmit = data => {
-    this.setState({ intialState: "Greetings" });
-    this.data = data;
+  onSubmit = dataFromForm => {
+    this.setState({ showGreetings: true, data: dataFromForm });
   };
   onBack = () => {
-    this.setState({ intialState: "UserForm" });
+    this.setState({ showGreetings: false });
   };
 
   render() {
-    let value = this.state.intialState;
+    let value = this.state.showGreetings;
     let StateComponent;
 
-    switch (value) {
-      case "UserForm":
-        StateComponent = <UserForm formData={this.onSubmit} />;
-        break;
-      case "Greetings":
-        StateComponent = <Greetings onBack={this.onBack} data={this.data} />;
-        break;
-      default:
-        StateComponent = <UserForm formData={this.onSubmit} />;
-        break;
+    if (value) {
+      StateComponent = (
+        <Greetings onBack={this.onBack} data={this.state.data} />
+      );
+    } else {
+      StateComponent = <UserForm formData={this.onSubmit} />;
     }
 
     return <div>{StateComponent}</div>;
