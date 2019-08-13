@@ -19,21 +19,18 @@ export default class App extends React.Component {
 
   render() {
     let value = this.state.showGreetings;
-    let StateComponent;
-
-    if (value) {
-      StateComponent = (
-        <Greetings onBack={this.onBack} data={this.state.data} />
-      );
-    } else {
-      StateComponent = <UserForm formData={this.onSubmit} />;
-    }
-
-    return <div>{StateComponent}</div>;
+    return value ? (
+      <Greetings onBack={this.onBack} data={this.state.data} />
+    ) : (
+      <UserForm formData={this.onSubmit} />
+    );
   }
 }
 App.propTypes = {
   onSubmit: PropTypes.func,
   onBack: PropTypes.func,
-  data: PropTypes.object
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    birthday: PropTypes.string
+  })
 };
