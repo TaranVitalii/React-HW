@@ -1,28 +1,29 @@
 import React from "react";
 import getProfile from "../services/getProfile";
-import RowsKeys from "./Table/RowsKeys";
-import RowsValues from "./Table/RowsValue";
+import Rows from "./Table/Table";
 
 class Profile extends React.Component {
-  state = {
-    data: {}
-  };
+  state = {};
 
   componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
-      getProfile(this.props.responseData).then(res =>
-        this.setState({ data: res.data })
-      );
+    if (this.props.data === undefined || this.props.data === "") {
+      return alert("You should enter userId to continue");
+    }
+    if (this.props.data > 10) {
+      return alert("User not found");
+    }
+    if (this.props.data) {
+      if (this.props.data !== prevProps.data) {
+        getProfile(this.props.data).then(res =>
+          this.setState({ res }, () => console.log(this.state.res.data))
+        );
+      }
     }
   }
 
   render() {
-    return (
-      <tbody>
-        <RowsKeys data={this.state.data} />
-        <RowsValues data={this.state.data} />
-      </tbody>
-    );
+    const values = this.state.res;
+    return values ? <Rows data={this.state.res} /> : null;
   }
 }
 export default Profile;

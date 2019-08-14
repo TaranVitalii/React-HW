@@ -3,22 +3,19 @@ import InputForm from "./InputForm";
 import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {
-  state = {
-    dataForm: {},
-    data: {}
-  };
+  state = {};
 
   onSubmit = dataFromForm => {
-    this.setState({ dataForm: dataFromForm });
+    this.setState({ dataFromForm }, () => console.log("Container", this.state));
   };
 
   render() {
     return (
       <div className="ProfileContainer">
-        <InputForm inputData={this.onSubmit} />
-        <table>
-          <Profile responseData={this.state.dataForm} />
-        </table>
+        <InputForm onclick={this.onSubmit} />
+        <div>
+          <Profile s={this.state.dataFromForm} />
+        </div>
       </div>
     );
   }
