@@ -1,29 +1,31 @@
 import React from "react";
 import getProfile from "../services/getProfile";
-import Rows from "./Table/Table";
+import Table from "./Table/Table";
+import NotFoundScreen from "./NotFoundScreen";
 
 class Profile extends React.Component {
   state = {};
 
+  updateUser = () => {
+    getProfile(this.props.userId)
+      .then(user => this.setState({ user }))
+      .catch(err => this.setState({ user: null, err }));
+  };
+
   componentDidUpdate(prevProps) {
-    if (this.props.data === undefined || this.props.data === "") {
+    if (!this.props.userId) {
       return alert("You should enter userId to continue");
     }
-    if (this.props.data > 10) {
-      return alert("User not found");
-    }
-    if (this.props.data) {
-      if (this.props.data !== prevProps.data) {
-        getProfile(this.props.data).then(res =>
-          this.setState({ res }, () => console.log(this.state.res.data))
-        );
-      }
+
+    if (this.props.userId !== prevProps.userId) {
+      this.updateUser();
     }
   }
 
   render() {
-    const values = this.state.res;
-    return values ? <Rows data={this.state.res} /> : null;
+    const user = this.state.user;
+
+    return user ? <Table data={user} /> : <NotFoundScreen />;
   }
 }
 export default Profile;

@@ -1,70 +1,31 @@
 import React from "react";
+import RowsHead from "./RowsHead";
+import RowsBody from "./RowsBody";
+import TableInRowsAdress from "./TableInRowsAdress";
+import TableInRowsCompany from "./TableInRowsCompany";
+import "./table.css";
 
-import "./rows.css";
-
-const Rows = props => {
+const Table = props => {
   const { data } = props.data;
+  const value = "Value";
+  const property = "Property";
+
   return (
     <table>
       <thead>
-        <tr>
-          <th>Property</th>
-          <th>Value</th>
-        </tr>
+        <RowsHead value={value} property={property} />
       </thead>
       <tbody>
-        <tr>
-          <th>ID</th>
-          <th>{data.id}</th>
-        </tr>
-        <tr>
-          <th>name</th>
-          <th>{data.name}</th>
-        </tr>
-        <tr>
-          <th>username</th>
-          <th>{data.username}</th>
-        </tr>
-        <tr>
-          <th>email</th>
-          <th>{data.email}</th>
-        </tr>
-        <tr>
-          <th>address</th>
-          <th>
-            <tr>
-              <th>street</th>
-              <th>{data.address.street}</th>
-            </tr>
-            <tr>
-              <th>suite</th>
-              <th>{data.address.suite}</th>
-            </tr>
-            <tr>
-              <th>city</th>
-              <th>{data.address.city}</th>
-            </tr>
-            <tr>
-              <th>zipcode</th>
-              <th>{data.address.zipcode}</th>
-            </tr>
-            <tr>
-              <th>geo</th>
-              <th>
-                <tr>
-                  <th>lat</th>
-                  <th>{data.address.geo.lat}</th>
-                </tr>
-                <tr>
-                  <th>lng</th>
-                  <th>{data.address.geo.lng}</th>
-                </tr>
-              </th>
-            </tr>
-          </th>
-        </tr>
+        <RowsBody name="id" value={data.id} />
+        <RowsBody name="name" value={data.name} />
+        <RowsBody name="username" value={data.username} />
+        <RowsBody name="email" value={data.email} />
+        <TableInRowsAdress name="address" value={data} />
+        <RowsBody name="phone" value={data.phone} />
+        <RowsBody name="website" value={data.website} />
+        <TableInRowsCompany name="company" value={data} />
       </tbody>
     </table>
   );
 };
-export default Rows;
+export default Table;

@@ -1,6 +1,6 @@
 import React from "react";
 import UserIdInput from "./UserIdInput";
-import ButtonSubmit from "./ButtonSubmit";
+import Button from "./Button";
 
 export default class InputForm extends React.Component {
   state = {};
@@ -10,13 +10,10 @@ export default class InputForm extends React.Component {
 
   render() {
     return (
-      <form className="user-form">
+      <div>
         <UserIdInput onChange={this.onChange} />
-        <ButtonSubmit
-          onSubmit={this.props.onclick}
-          data={this.state.dataFromForm}
-        />
-      </form>
+        <Button onClick={this.props.onClick} data={this.state.dataFromForm} />
+      </div>
     );
   }
 }

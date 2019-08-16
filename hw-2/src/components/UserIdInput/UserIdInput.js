@@ -7,6 +7,7 @@ export default props => {
   };
   return (
     <input
+      className="inputForm"
       type="text"
       name="UserId"
       placeholder="User id"

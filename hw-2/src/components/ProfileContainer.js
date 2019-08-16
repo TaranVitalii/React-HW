@@ -3,18 +3,20 @@ import InputForm from "./InputForm";
 import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {
-  state = {};
+  state = {
+    userId: null
+  };
 
-  onSubmit = dataFromForm => {
-    this.setState({ dataFromForm }, () => console.log("Container", this.state));
+  onClick = userId => {
+    this.setState({ userId }, () => console.log("Container", this.state));
   };
 
   render() {
     return (
       <div className="ProfileContainer">
-        <InputForm onclick={this.onSubmit} />
+        <InputForm onClick={this.onClick} />
         <div>
-          <Profile s={this.state.dataFromForm} />
+          <Profile userId={this.state.userId} />
         </div>
       </div>
     );
