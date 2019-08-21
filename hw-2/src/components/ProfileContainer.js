@@ -1,5 +1,5 @@
 import React from "react";
-import InputForm from "./InputForm";
+import InputForm from "./Input";
 import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {

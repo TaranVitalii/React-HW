@@ -1,13 +1,17 @@
 import React from "react";
 import InputForm from "./Input";
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
 
 describe("<InputForm/>", () => {
-  it("1st test", () => {
+  it("should render a InputForm", () => {
     const wrapper = shallow(<InputForm />);
-    const value = wrapper.find(".inputForm");
-    const button = wrapper.find(".button").simulate("click");
-    console.log(value);
-    expect(value).toEqual(undefined);
+    expect(wrapper).toMatchSnapshot();
   });
+
+  //   it("should open a code editor", () => {
+  //     const wrapper = mount(<InputForm code={code} />);
+  //     expect(wrapper.find(".ReactCodeMirror")).toHaveLength(0);
+  //     wrapper.find(".Button").simulate("click");
+  //     expect(wrapper.find(".ReactCodeMirror")).toHaveLength(1);
+  //   });
 });
