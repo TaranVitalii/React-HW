@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputForm/> 1st test 1`] = `ShallowWrapper {}`;
+
+exports[`<NotFoundScreen/> should render a not found screen 1`] = `ShallowWrapper {}`;
