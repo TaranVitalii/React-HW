@@ -1,9 +1,9 @@
 import React from "react";
-import "./index.css";
-import odd from "../../../hocs/withSquare/odd";
-import size from "../../../hocs/withSquare/size";
-import border from "../../../hocs/withSquare/border";
-import other from "../../../hocs/withSquare/other";
+import OddElementDragged from "../../../hocs/withSquare/oddElementDragged";
+import BigSize from "../../../hocs/withSquare/size";
+import BorderStyle from "../../../hocs/withSquare/border";
+import EvenElement from "../../../hocs/withSquare/even";
+import DragStart from "../../../hocs/withSquare/dragStart";
 
 function Square({ dragged, style, count, dragStart, dragEnd }) {
   return (
@@ -18,4 +18,6 @@ function Square({ dragged, style, count, dragStart, dragEnd }) {
   );
 }
 
-export default odd(other(border(size(Square))));
+export default DragStart(
+  OddElementDragged(EvenElement(BorderStyle(BigSize(Square))))
+);

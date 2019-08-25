@@ -1,8 +1,11 @@
 import React from "react";
-import "./button.css";
-export default function Button({ onClickHandler, figure }) {
+export default function Button({ onClickHandler, figure, styleButton }) {
   return (
-    <button className={`button${figure}`} onClick={onClickHandler}>
+    <button
+      className={`button${figure}`}
+      onClick={onClickHandler}
+      style={styleButton}
+    >
       {figure}
     </button>
   );

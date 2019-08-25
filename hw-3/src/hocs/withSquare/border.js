@@ -1,24 +1,18 @@
 import React from "react";
+import styleUpdate from "../../utils/updateStyle";
 
-const FigureSquareBorder = FigureSquareBorder =>
+const BorderStyle = BorderStyle =>
   class extends React.Component {
     state = {
-      dragged: null,
-      style: null
+      dragged: null
     };
+
     checkSquare = () => {
       const count = this.props.count;
-
+      let borderStyle = { border: "dotted" };
+      let styleUpdated = styleUpdate(this.props.style, borderStyle);
       if (count % 4 === 0) {
-        let style = {
-          width: "60px",
-          height: "60px",
-          background: "blue",
-          margin: "10px",
-          border: "dotted"
-        };
-
-        this.setState({ dragged: false, style: style });
+        this.setState({ dragged: false, style: styleUpdated });
       } else {
         this.setState({ dragged: this.props.dragged, style: this.props.style });
       }
@@ -36,8 +30,8 @@ const FigureSquareBorder = FigureSquareBorder =>
         style: this.state.style
       };
 
-      return <FigureSquareBorder {...this.props} {...state} />;
+      return <BorderStyle {...this.props} {...state} />;
     }
   };
 
-export default FigureSquareBorder;
+export default BorderStyle;

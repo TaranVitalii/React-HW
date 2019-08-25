@@ -1,5 +1,6 @@
 import React from "react";
-import randomColor from "../../../hocs/withCircle/randomColorAndDestroy";
+import DragAndDrop from "../../../hocs/withTriangle/Drag'n'drop";
+import ImgLoad from "../../../hocs/withTriangle/imgLoad";
 
 function Triangle({ style, handler, onDragOver, onDrop }) {
   return (
@@ -9,8 +10,8 @@ function Triangle({ style, handler, onDragOver, onDrop }) {
       style={style}
       onDragOver={onDragOver}
       onDrop={onDrop}
-    />
+    ></div>
   );
 }
 
-export default Triangle;
+export default DragAndDrop(ImgLoad(Triangle));

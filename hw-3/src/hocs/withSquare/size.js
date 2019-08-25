@@ -1,6 +1,7 @@
 import React from "react";
+import styleUpdate from "../../utils/updateStyle";
 
-const FigureSquareSize = FigureSquareSize =>
+const BigSize = BigSize =>
   class extends React.Component {
     state = {
       dragged: null,
@@ -11,52 +12,25 @@ const FigureSquareSize = FigureSquareSize =>
       const count = this.props.count;
 
       if (count % 3 === 0) {
-        let style = {
+        let bigSizeStyle = {
           width: "120px",
-          height: "120px",
-          background: "blue",
-          margin: "10px"
+          height: "120px"
         };
-        this.setState({ dragged: true, style: style });
+        let styleUpdated = styleUpdate(this.props.style, bigSizeStyle);
+        this.setState({ dragged: this.props.dragged, style: styleUpdated });
       } else {
         this.setState({ dragged: this.props.dragged, style: this.props.style });
       }
     };
 
-    checkSquareBigWithBorder = () => {
-      const count = this.props.count;
-      if (count % 3 === 0) {
-        let style = {
-          width: "120px",
-          height: "120px",
-          background: "blue",
-          margin: "10px",
-          border: "dotted"
-        };
-        this.setState({ dragged: this.props.dragged, style: style });
-      } else {
-        this.checkSquare();
-      }
-    };
-
     componentDidUpdate(prevProps) {
       if (prevProps !== this.props) {
-        const count = this.props.count;
-        if (count % 4 === 0) {
-          this.checkSquareBigWithBorder();
-        } else {
-          this.checkSquare();
-        }
+        this.checkSquare();
       }
     }
 
     render() {
-      const state = {
-        dragged: this.state.dragged,
-        style: this.state.style
-      };
-
-      return <FigureSquareSize {...this.props} {...state} />;
+      return <BigSize {...this.props} {...this.state} />;
     }
   };
-export default FigureSquareSize;
+export default BigSize;

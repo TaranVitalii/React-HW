@@ -1,17 +1,18 @@
 import React from "react";
-import FigureContaineSquare from "./components/Figure/Square/FigureContainer";
-import FigureContainerCircle from "./components/Figure/Circle/FigureContainer";
-import FigureContainerTriangle from "./components/Figure/Triangle/FigureContainer";
-import "./App.css";
+import Container from "./Container";
+import Button from "./components/Button";
+import SwitchTheme from "./hocs/withColorTheme/switchTheme";
 
-function App() {
+function App({ styleBackground, onClickHandler, styleTheme }) {
   return (
-    <div className="App">
-      <FigureContaineSquare />
-      <FigureContainerCircle />
-      <FigureContainerTriangle />
+    <div className="App" style={styleBackground}>
+      <Button
+        onClickHandler={onClickHandler}
+        figure="theme"
+        styleButton={styleTheme}
+      />
+      <Container style={styleTheme} />
     </div>
   );
 }
-
-export default App;
+export default SwitchTheme(App);

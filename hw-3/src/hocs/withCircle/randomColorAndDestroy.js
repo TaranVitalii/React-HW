@@ -1,27 +1,29 @@
 import React from "react";
+import randomColor from "../../utils/createColor";
+import styleUpdate from "../../utils/updateStyle";
+import exist20chance from "../../utils/exist20chance";
 
 const FigureCircleRandomColor = FigureCircleRandomColor =>
   class extends React.Component {
-    state = {};
-
-    createColor = () => {
-      const newColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-      this.setState({
-        style: {
-          width: "120px",
-          height: "120px",
-          borderRadius: "60px",
-          background: newColor,
-          margin: "10px"
-        }
-      });
+    state = {
+      style: {
+        width: "120px",
+        height: "120px",
+        borderRadius: "60px",
+        background: "green",
+        margin: "10px"
+      }
     };
 
     onClickHandler = e => {
-      if (Math.random() * 100 < 20) {
-        this.props.destroy(this.props.elem);
+      if (exist20chance()) {
+        this.props.destroy(this.props.elem, e.target.className);
+      } else {
+        let style = this.state.style;
+        let newColor = { background: randomColor() };
+        let newStyleWithRandomColor = styleUpdate(style, newColor);
+        this.setState({ style: newStyleWithRandomColor });
       }
-      this.createColor();
     };
 
     componentDidMount() {
