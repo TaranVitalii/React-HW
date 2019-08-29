@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../../Button";
 import Circle from "./Figure";
-import style from "../../../styles/Figure";
 import StoreContext from "../../../contexts/Theme";
 
 export default function FigureCircle({ onClickHandler, circles, destroy }) {
@@ -12,15 +11,10 @@ export default function FigureCircle({ onClickHandler, circles, destroy }) {
           <Button
             onClickHandler={onClickHandler}
             figure="circle"
-            styleButton={value.styleButton}
+            className={value.themeButton}
           />
           {circles.map(elem => (
-            <Circle
-              style={style.circle}
-              destroy={destroy}
-              key={elem}
-              elem={elem}
-            />
+            <Circle destroy={destroy} key={elem} elem={elem} />
           ))}
         </div>
       )}

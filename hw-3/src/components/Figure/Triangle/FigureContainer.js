@@ -1,15 +1,9 @@
 import React from "react";
 import Button from "../../Button";
 import Triangle from "./Figure";
-import style from "../../../styles/Figure";
 import StoreContext from "../../../contexts/Theme";
 
-export default function FigureTriangle({
-  onClickHandler,
-  triangles,
-  destroy,
-  styleButton
-}) {
+export default function FigureTriangle({ onClickHandler, triangles, destroy }) {
   return (
     <StoreContext.Consumer>
       {value => (
@@ -17,15 +11,10 @@ export default function FigureTriangle({
           <Button
             onClickHandler={onClickHandler}
             figure="triangle"
-            styleButton={value.styleButton}
+            className={value.themeButton}
           />
           {triangles.map(elem => (
-            <Triangle
-              style={style.triangle}
-              destroy={destroy}
-              key={elem}
-              elem={elem}
-            />
+            <Triangle destroy={destroy} key={elem} elem={elem} />
           ))}
         </div>
       )}

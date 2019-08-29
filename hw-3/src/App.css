@@ -1,0 +1,29 @@
+.lightButton {
+  width: 150px;
+  height: 100px;
+  color: black;
+  text-decoration: none;
+  user-select: none;
+  background: silver;
+  padding: 0.7em 1.5em;
+  outline: none;
+}
+
+.darkButton {
+  width: 150px;
+  height: 100px;
+  color: silver;
+  text-decoration: none;
+  user-select: none;
+  background: black;
+  padding: 0.7em 1.5em;
+  outline: none;
+}
+
+.light {
+  background-color: #dae2f0;
+}
+
+.dark {
+  background-color: #333331;
+}

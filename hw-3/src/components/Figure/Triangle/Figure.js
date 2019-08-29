@@ -1,13 +1,14 @@
 import React from "react";
 import DragAndDrop from "../../../hocs/withTriangle/Drag'n'drop";
 import ImgLoad from "../../../hocs/withTriangle/imgLoad";
+import "./index.css";
 
-function Triangle({ style, handler, onDragOver, onDrop }) {
+function Triangle({ className, handler, onDragOver, onDrop }) {
+  console.log(className);
   return (
     <div
-      className="triangle"
+      className={className}
       onClick={handler}
-      style={style}
       onDragOver={onDragOver}
       onDrop={onDrop}
     ></div>

@@ -18,32 +18,28 @@ class Container extends React.Component {
     elementsTriangle: []
   };
 
-  onClick = figure => {
-    if (figure === "square") {
-      const elementsFigure = this.state.elementsSquare;
-      const nextCount = this.state.countSquare + 1;
-      const plusNewElementsFigure = [...elementsFigure, nextCount];
-      this.setState({
-        countSquare: nextCount,
-        elementsSquare: plusNewElementsFigure
-      });
-    } else if (figure === "circle") {
-      const elementsFigure = this.state.elementsCircle;
-      const plusNewElementsFigure = createNewFigure(elementsFigure);
-      this.setState({
-        elementsCircle: plusNewElementsFigure
-      });
-    } else if (figure === "triangle") {
-      const elementsFigure = this.state.elementsTriangle;
-      const plusNewElementsFigure = createNewFigure(elementsFigure);
-      this.setState({
-        elementsTriangle: plusNewElementsFigure
-      });
-    }
+  onClickSquareHandler = e => {
+    const elementsFigure = this.state.elementsSquare;
+    const nextCount = this.state.countSquare + 1;
+    const plusNewElementsFigure = [...elementsFigure, nextCount];
+    this.setState({
+      countSquare: nextCount,
+      elementsSquare: plusNewElementsFigure
+    });
   };
-
-  onClickHandler = e => {
-    this.onClick(e.target.textContent);
+  onClickCircleHandler = e => {
+    const elementsFigure = this.state.elementsCircle;
+    const plusNewElementsFigure = createNewFigure(elementsFigure);
+    this.setState({
+      elementsCircle: plusNewElementsFigure
+    });
+  };
+  onClickTriangleHandler = e => {
+    const elementsFigure = this.state.elementsTriangle;
+    const plusNewElementsFigure = createNewFigure(elementsFigure);
+    this.setState({
+      elementsTriangle: plusNewElementsFigure
+    });
   };
 
   destroyElement = (elem, className) => {
@@ -63,17 +59,17 @@ class Container extends React.Component {
       <div className="theme">
         <FigureSquare
           count={this.state.countSquare}
-          onClickHandler={this.onClickHandler}
+          onClickHandler={this.onClickSquareHandler}
           squares={this.state.elementsSquare}
         />
         <FigureCircle
           circles={this.state.elementsCircle}
-          onClickHandler={this.onClickHandler}
+          onClickHandler={this.onClickCircleHandler}
           destroy={this.destroyElement}
         />
         <FigureTriangle
           triangles={this.state.elementsTriangle}
-          onClickHandler={this.onClickHandler}
+          onClickHandler={this.onClickTriangleHandler}
           destroy={this.destroyElement}
         />
       </div>

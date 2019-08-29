@@ -8,7 +8,7 @@ const DragAndDrop = DragAndDrop =>
 
     drop = e => {
       if (e.target.className === "triangle") {
-        let count = +e.dataTransfer.getData("count");
+        let count = Number(e.dataTransfer.getData("count"));
         this.props.destroy(count, e.target.className);
       }
     };

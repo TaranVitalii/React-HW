@@ -1,48 +1,45 @@
 import React from "react";
 import Container from "./Container";
 import Button from "./Button";
-import styles from "../styles/Figure";
 import StoreContext from "../contexts/Theme";
 
 class Theme extends React.Component {
   state = {
-    styleButton: styles.styleButtonLight,
-    styleBackground: styles.styleBackgroundLight,
-    theme: "light"
+    theme: "light",
+    themeButton: "lightButton"
   };
 
   clickHandler = e => {
     if (this.state.theme === "light") {
       let style = "dark";
+      let themeButton = "darkButton";
       this.setState({
-        styleButton: styles.styleButtonDark,
-        styleBackground: styles.styleBackgroundDark,
-        theme: style
+        theme: style,
+        themeButton: themeButton
       });
     } else if (this.state.theme === "dark") {
       let style = "light";
+      let themeButton = "lightButton";
       this.setState({
-        styleButton: styles.styleButtonLight,
-        styleBackground: styles.styleBackgroundLight,
-        theme: style
+        theme: style,
+        themeButton: themeButton
       });
     }
   };
 
   render() {
-    const theme = {
-      styleButton: this.state.styleButton,
-      styleBackground: this.state.styleBackground
+    const state = {
+      themeButton: this.state.themeButton
     };
 
     return (
-      <StoreContext.Provider value={theme}>
+      <StoreContext.Provider value={state}>
         {
-          <div className="theme" style={this.state.styleBackground}>
+          <div className={this.state.theme}>
             <Button
               onClickHandler={this.clickHandler}
               figure="theme"
-              styleButton={this.state.styleButton}
+              className={this.state.themeButton}
             />
             <Container />
           </div>

@@ -1,8 +1,9 @@
 import React from "react";
 import randomColor from "../../../hocs/withCircle/randomColorAndDestroy";
+import "./index.css";
 
-function Square({ style, handler }) {
+function Circle({ style, handler }) {
   return <div className="circle" onClick={handler} style={style} />;
 }
 
-export default randomColor(Square);
+export default randomColor(Circle);

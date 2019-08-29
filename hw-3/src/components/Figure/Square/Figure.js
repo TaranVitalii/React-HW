@@ -4,14 +4,14 @@ import BigSize from "../../../hocs/withSquare/size";
 import BorderStyle from "../../../hocs/withSquare/border";
 import EvenElement from "../../../hocs/withSquare/even";
 import DragStart from "../../../hocs/withSquare/dragStart";
+import "./index.css";
 
-function Square({ dragged, style, count, dragStart, dragEnd }) {
+function Square({ dragged, count, dragStart, dragEnd, className }) {
   return (
     <div
       count={count}
-      className="square"
+      className={className}
       draggable={dragged}
-      style={style}
       onDragStart={dragStart}
       onDragEnd={dragEnd}
     />

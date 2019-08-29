@@ -1,10 +1,14 @@
 import React from "react";
 import Button from "../../Button";
 import Square from "./Figure";
-import style from "../../../styles/Figure";
 import StoreContext from "../../../contexts/Theme";
 
-export default function FigureSquare({ onClickHandler, squares, dragStart }) {
+export default function FigureSquare({
+  onClickHandler,
+  squares,
+  dragStart,
+  className
+}) {
   return (
     <StoreContext.Consumer>
       {value => (
@@ -12,14 +16,14 @@ export default function FigureSquare({ onClickHandler, squares, dragStart }) {
           <Button
             onClickHandler={onClickHandler}
             figure="square"
-            styleButton={value.styleButton}
+            className={value.themeButton}
           />
           {squares.map(elem => (
             <Square
               count={elem}
               key={elem}
               dragStart={dragStart}
-              style={style.square}
+              className={className}
             />
           ))}
         </div>
