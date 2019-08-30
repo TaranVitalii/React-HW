@@ -11,7 +11,7 @@ export default function FigureTriangle({ onClickHandler, triangles, destroy }) {
           <Button
             onClickHandler={onClickHandler}
             figure="triangle"
-            className={value.themeButton}
+            className={`${value.theme}button`}
           />
           {triangles.map(elem => (
             <Triangle destroy={destroy} key={elem} elem={elem} />

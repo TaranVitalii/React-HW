@@ -10,7 +10,7 @@ const BigSize = BigSize =>
     checkSquare = () => {
       const count = this.props.count;
 
-      if (count % 3 === 0) {
+      if (count && count % 3 === 0) {
         this.setState({ dragged: this.props.dragged, className: "squareBig" });
       } else {
         this.setState({
@@ -22,7 +22,7 @@ const BigSize = BigSize =>
 
     checkSquareBigBorder = () => {
       const count = this.props.count;
-      if (count % 3 === 0) {
+      if (count && count % 3 === 0) {
         this.setState({
           dragged: this.props.dragged,
           className: "squareBigBorder"
@@ -39,7 +39,7 @@ const BigSize = BigSize =>
       if (prevProps.className !== this.props.className) {
         const count = this.props.count;
 
-        if (count % 4 === 0) {
+        if (count && count % 4 === 0) {
           this.checkSquareBigBorder();
         } else {
           this.checkSquare();

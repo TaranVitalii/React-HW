@@ -4,7 +4,6 @@ import ImgLoad from "../../../hocs/withTriangle/imgLoad";
 import "./index.css";
 
 function Triangle({ className, handler, onDragOver, onDrop }) {
-  console.log(className);
   return (
     <div
       className={className}

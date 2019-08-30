@@ -9,8 +9,7 @@ const OddElementDragged = OddElementDragged =>
 
     checkSquare = () => {
       const count = this.props.count;
-
-      if (!count || count % 2 === 1) {
+      if (count || count % 2 === 1) {
         this.setState({ dragged: true, className: "squareOdd" });
       } else {
         this.setState({

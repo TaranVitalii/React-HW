@@ -9,7 +9,7 @@ const BorderStyle = BorderStyle =>
 
     checkSquare = () => {
       const count = this.props.count;
-      if (count % 4 === 0) {
+      if (count && count % 4 === 0) {
         this.setState({ dragged: false, className: "squareBorder" });
       } else {
         this.setState({

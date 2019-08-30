@@ -16,7 +16,7 @@ export default function FigureSquare({
           <Button
             onClickHandler={onClickHandler}
             figure="square"
-            className={value.themeButton}
+            className={`${value.theme}button`}
           />
           {squares.map(elem => (
             <Square

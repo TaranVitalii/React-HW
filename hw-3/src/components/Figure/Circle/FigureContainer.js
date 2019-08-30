@@ -11,7 +11,7 @@ export default function FigureCircle({ onClickHandler, circles, destroy }) {
           <Button
             onClickHandler={onClickHandler}
             figure="circle"
-            className={value.themeButton}
+            className={`${value.theme}button`}
           />
           {circles.map(elem => (
             <Circle destroy={destroy} key={elem} elem={elem} />

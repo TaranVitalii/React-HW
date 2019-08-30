@@ -5,41 +5,32 @@ import StoreContext from "../contexts/Theme";
 
 class Theme extends React.Component {
   state = {
-    theme: "light",
-    themeButton: "lightButton"
+    theme: "light"
   };
 
   clickHandler = e => {
     if (this.state.theme === "light") {
       let style = "dark";
-      let themeButton = "darkButton";
       this.setState({
-        theme: style,
-        themeButton: themeButton
+        theme: style
       });
     } else if (this.state.theme === "dark") {
       let style = "light";
-      let themeButton = "lightButton";
       this.setState({
-        theme: style,
-        themeButton: themeButton
+        theme: style
       });
     }
   };
 
   render() {
-    const state = {
-      themeButton: this.state.themeButton
-    };
-
     return (
-      <StoreContext.Provider value={state}>
+      <StoreContext.Provider value={this.state}>
         {
-          <div className={this.state.theme}>
+          <div className={`${this.state.theme} theme`}>
             <Button
               onClickHandler={this.clickHandler}
               figure="theme"
-              className={this.state.themeButton}
+              className={`${this.state.theme}button`}
             />
             <Container />
           </div>

@@ -9,7 +9,7 @@ const EvenElement = EvenElement =>
 
     checkSquare = () => {
       const count = this.props.count;
-      if (count % 2 === 0) {
+      if (count && count % 2 === 0) {
         this.setState({ dragged: false, className: "squareEven" });
       } else {
         this.setState({
