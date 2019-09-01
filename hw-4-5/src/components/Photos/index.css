@@ -1,0 +1,23 @@
+.photosList {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-gap: 2vw;
+}
+
+.photo {
+  background-color: #f9f9f9;
+  min-width: 150px;
+  border: 2px solid black;
+  font-size: 2vw;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.photos {
+  font-size: 4vw;
+  text-align: center;
+}
+i {
+  margin: 10px;
+}
