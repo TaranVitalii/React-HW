@@ -2,13 +2,15 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { getUsers } from "../../store/selectors/users";
-import { getUsersAxios, getAlbumsAxios } from "../../store/actions/users";
+import {
+  getUsersAxios,
+  getAlbumsAxios
+} from "../../store/actions/usersAlbumsPhotosLikes";
 
 const MenuContainer = Component =>
   class MenuContainer extends React.Component {
     componentDidMount() {
       this.props.getUsersAxios();
-      console.log(this.props.getUsersAxios(), "all Users");
     }
 
     onClickHandler = e => {

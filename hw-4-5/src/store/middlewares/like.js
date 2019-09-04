@@ -1,16 +1,23 @@
 import postLike from "../../services/postLike";
-import { successAction, failureAction } from "../types";
-import { POST_LIKE } from "../constants";
+import { failureAction } from "../types";
+import { POST_LIKE, UPDATE_PHOTOS } from "../constants";
+import { saveState } from "../localStorage";
 
 export default store => next => action => {
   if (action.type === POST_LIKE) {
-    postLike(action.payload)
+    postLike()
       .finally(() => {
+        const { photos } = store.getState(); //get photos in store , and add new like
+        let updatePhotos = photos.data.map(elem =>
+          elem.id === action.payload.id
+            ? { ...elem, like: action.payload.value + 1 }
+            : elem
+        );
+        saveState(action.payload.photoAlbumId, updatePhotos); // save store in LocalStorage
         store.dispatch({
-          type: successAction(POST_LIKE),
-          payload: {
-            value: action.payload + 1
-          }
+          // after like dispatch action UPDATE_Photos wit new array photos.
+          type: UPDATE_PHOTOS,
+          payload: updatePhotos
         });
       })
       .catch(error =>

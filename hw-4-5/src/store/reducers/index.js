@@ -1,4 +1,4 @@
-import { combineReducers } from "redux"; //2--- так как редьюсеров может быть много, их все надо положить в комбайн
+import { combineReducers } from "redux";
 
 import user from "./user";
 import albums from "./ablums";

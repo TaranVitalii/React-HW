@@ -2,12 +2,11 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { getAlbums } from "../../store/selectors/users";
-import { getPhotosAxios } from "../../store/actions/users";
+import { getPhotosAxios } from "../../store/actions/usersAlbumsPhotosLikes";
 
 const AlbumsContainer = Component =>
   class AlbumsContainer extends React.Component {
     onClickHandler = e => {
-      console.log("click");
       let id = Number(e.target.getAttribute("id"));
       this.props.getPhotosAxios(id);
     };

@@ -1,9 +1,7 @@
 import { successAction, failureAction } from "../types";
 import { POST_LIKE } from "../constants.js";
 
-const initialState = {
-  data: 0
-};
+const initialState = { data: 0 };
 
 export default function Like(state = initialState, action) {
   switch (action.type) {

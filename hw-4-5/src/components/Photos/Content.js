@@ -1,7 +1,7 @@
 import React from "react";
-import Likes from "../Likes";
 
 import "./index.css";
+
 export default ({ photos, onClickHandler }) => {
   return (
     <div className="photos">
@@ -18,7 +18,10 @@ export default ({ photos, onClickHandler }) => {
               <h4>{photo.title}</h4>
 
               <img className="photoImg" src={photo.thumbnailUrl} />
-              <Likes onClick={onClickHandler} />
+              <div className="likes">
+                {photo.like}
+                <i className="far fa-heart" onClick={onClickHandler}></i>
+              </div>
             </div>
           ))}
         </div>

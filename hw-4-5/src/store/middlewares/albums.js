@@ -6,12 +6,13 @@ export default store => next => action => {
   if (action.type === GET_ALBUMS) {
     getAlbums()
       .then(albums => {
-        const album = albums.data.filter(
+        //looking for the albums we need
+        const albumsWithId = albums.data.filter(
           album => album.userId === action.payload
         );
         store.dispatch({
           type: successAction(GET_ALBUMS),
-          payload: album
+          payload: albumsWithId
         });
       })
       .catch(error =>

@@ -1,5 +1,5 @@
 import { successAction, failureAction } from "../types";
-import { GET_PHOTOS } from "../constants.js";
+import { GET_PHOTOS, UPDATE_PHOTOS } from "../constants.js";
 
 const initialState = {
   data: []
@@ -20,7 +20,10 @@ export default function Photos(state = initialState, action) {
         ...state,
         error: action.error
       };
-
+    case UPDATE_PHOTOS:
+      return {
+        data: action.payload
+      };
     default:
       return state;
   }

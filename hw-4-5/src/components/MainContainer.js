@@ -10,7 +10,6 @@ export default class MainContainer extends React.Component {
     return (
       <div className="mainContainer">
         <DropDownMenu />
-
         <Albums />
         <Photos />
       </div>

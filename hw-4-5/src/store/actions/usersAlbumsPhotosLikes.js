@@ -1,4 +1,10 @@
-import { GET_USERS, GET_ALBUMS, GET_PHOTOS, POST_LIKE } from "../constants";
+import {
+  GET_USERS,
+  GET_ALBUMS,
+  GET_PHOTOS,
+  POST_LIKE,
+  UPDATE_PHOTOS
+} from "../constants";
 
 export function getUsersAxios() {
   return {
@@ -20,9 +26,15 @@ export function getPhotosAxios(id) {
   };
 }
 
-export function postLikesAxios(value) {
+export function postLikesAxios(value, id, photoAlbumId) {
   return {
     type: POST_LIKE,
+    payload: { value, id, photoAlbumId }
+  };
+}
+export function updatePhoto(value) {
+  return {
+    type: UPDATE_PHOTOS,
     payload: value
   };
 }
