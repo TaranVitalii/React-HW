@@ -3,7 +3,7 @@ import React from "react";
 const DragStart = DragStart =>
   class extends React.Component {
     dragStart = e => {
-      const count = +e.target.getAttribute("count");
+      const count = Number(e.target.getAttribute("count"));
       e.dataTransfer.setData("count", count);
     };
 

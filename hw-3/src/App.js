@@ -1,18 +1,12 @@
 import React from "react";
-import Container from "./Container";
-import Button from "./components/Button";
-import SwitchTheme from "./hocs/withColorTheme/switchTheme";
+import Theme from "./components/Theme";
+import "./App.css";
 
-function App({ styleBackground, onClickHandler, styleTheme }) {
+function App() {
   return (
-    <div className="App" style={styleBackground}>
-      <Button
-        onClickHandler={onClickHandler}
-        figure="theme"
-        styleButton={styleTheme}
-      />
-      <Container style={styleTheme} />
+    <div className="App">
+      <Theme />
     </div>
   );
 }
-export default SwitchTheme(App);
+export default App;

@@ -1,24 +1,33 @@
 import React from "react";
 import Button from "../../Button";
 import Square from "./Figure";
+import StoreContext from "../../../contexts/Theme";
 
-export default function FigureContainerSquare({
+export default function FigureSquare({
   onClickHandler,
   squares,
   dragStart,
-  style,
-  styleButton
+  className
 }) {
   return (
-    <div className="squareHeaders">
-      <Button
-        onClickHandler={onClickHandler}
-        figure="square"
-        styleButton={styleButton}
-      />
-      {squares.map(elem => (
-        <Square count={elem} key={elem} dragStart={dragStart} style={style} />
-      ))}
-    </div>
+    <StoreContext.Consumer>
+      {value => (
+        <div className="headers">
+          <Button
+            onClickHandler={onClickHandler}
+            figure="square"
+            className={`${value.theme}button`}
+          />
+          {squares.map(elem => (
+            <Square
+              count={elem}
+              key={elem}
+              dragStart={dragStart}
+              className={className}
+            />
+          ))}
+        </div>
+      )}
+    </StoreContext.Consumer>
   );
 }

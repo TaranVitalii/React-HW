@@ -1,30 +1,22 @@
 import React from "react";
-import checkPropStyle from "../../utils/checkPropStyle";
 
 const ImgLoad = ImgLoad =>
   class extends React.Component {
-    state = {};
+    state = { className: "triangle" };
 
     clickHandler = e => {
       if (e.target.className === "triangle") {
-        this.setState({
-          style: {
-            backgroundImage: "url(" + require("../../logo.png") + ")",
-            width: "100px",
-            height: "100px"
-          }
-        });
+        this.setState({ className: "triangleImg" });
       } else {
-        this.setState({ style: this.props.style });
+        this.setState({ className: this.props.className });
       }
     };
 
     render() {
-      const hand = { handler: this.clickHandler };
-      const style = {
-        style: checkPropStyle(this.state.style, this.props.style)
+      const state = {
+        handler: this.clickHandler,
+        className: this.state.className
       };
-      const state = { ...hand, ...style };
 
       return <ImgLoad {...this.props} {...state} />;
     }

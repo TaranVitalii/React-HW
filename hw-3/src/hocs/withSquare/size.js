@@ -1,31 +1,49 @@
 import React from "react";
-import styleUpdate from "../../utils/updateStyle";
 
 const BigSize = BigSize =>
   class extends React.Component {
     state = {
       dragged: null,
-      style: null
+      className: null
     };
 
     checkSquare = () => {
       const count = this.props.count;
 
-      if (count % 3 === 0) {
-        let bigSizeStyle = {
-          width: "120px",
-          height: "120px"
-        };
-        let styleUpdated = styleUpdate(this.props.style, bigSizeStyle);
-        this.setState({ dragged: this.props.dragged, style: styleUpdated });
+      if (count && count % 3 === 0) {
+        this.setState({ dragged: this.props.dragged, className: "squareBig" });
       } else {
-        this.setState({ dragged: this.props.dragged, style: this.props.style });
+        this.setState({
+          dragged: this.props.dragged,
+          className: this.props.className
+        });
+      }
+    };
+
+    checkSquareBigBorder = () => {
+      const count = this.props.count;
+      if (count && count % 3 === 0) {
+        this.setState({
+          dragged: this.props.dragged,
+          className: "squareBigBorder"
+        });
+      } else {
+        this.setState({
+          dragged: this.props.dragged,
+          className: this.props.className
+        });
       }
     };
 
     componentDidUpdate(prevProps) {
-      if (prevProps !== this.props) {
-        this.checkSquare();
+      if (prevProps.className !== this.props.className) {
+        const count = this.props.count;
+
+        if (count && count % 4 === 0) {
+          this.checkSquareBigBorder();
+        } else {
+          this.checkSquare();
+        }
       }
     }
 

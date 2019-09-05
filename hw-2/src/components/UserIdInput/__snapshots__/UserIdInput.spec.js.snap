@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputForm/> 1st test 1`] = `ShallowWrapper {}`;
+
+exports[`<InputForm/> should pass a selected value to the onChange handler 1`] = `ShallowWrapper {}`;
+
+exports[`<InputForm/> should render a UserId Input 1`] = `ShallowWrapper {}`;
+
+exports[`should render a <InputForm/> 1st test 1`] = `ShallowWrapper {}`;

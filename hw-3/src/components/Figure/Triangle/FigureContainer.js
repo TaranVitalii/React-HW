@@ -1,24 +1,23 @@
 import React from "react";
 import Button from "../../Button";
 import Triangle from "./Figure";
+import StoreContext from "../../../contexts/Theme";
 
-export default function FigureContainerTriangle({
-  onClickHandler,
-  triangles,
-  style,
-  destroy,
-  styleButton
-}) {
+export default function FigureTriangle({ onClickHandler, triangles, destroy }) {
   return (
-    <div className="triangleHeaders">
-      <Button
-        onClickHandler={onClickHandler}
-        figure="triangle"
-        styleButton={styleButton}
-      />
-      {triangles.map(elem => (
-        <Triangle style={style} destroy={destroy} key={elem} elem={elem} />
-      ))}
-    </div>
+    <StoreContext.Consumer>
+      {value => (
+        <div className="headers">
+          <Button
+            onClickHandler={onClickHandler}
+            figure="triangle"
+            className={`${value.theme}button`}
+          />
+          {triangles.map(elem => (
+            <Triangle destroy={destroy} key={elem} elem={elem} />
+          ))}
+        </div>
+      )}
+    </StoreContext.Consumer>
   );
 }
