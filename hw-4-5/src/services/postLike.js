@@ -5,4 +5,5 @@ const postLike = value => {
     like: value
   });
 };
+
 export default postLike;

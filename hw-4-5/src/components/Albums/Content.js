@@ -1,22 +1,15 @@
 import React from "react";
+import Album from "./Album";
 import "./index.css";
 
-export default ({ albums, onClickHandler }) => {
+export default ({ albums }) => {
   return (
     <div className="albums">
-      ALBUMS
+      albums
       {albums && (
         <div className="albumsList">
-          {albums.map(elem => (
-            <div
-              className="album"
-              id={elem.id}
-              key={elem.id}
-              userid={elem.userId}
-              onClick={onClickHandler}
-            >
-              {elem.title}
-            </div>
+          {albums.map(album => (
+            <Album id={album.id} key={album.id} title={album.title} />
           ))}
         </div>
       )}

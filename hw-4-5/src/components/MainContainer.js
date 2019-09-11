@@ -3,16 +3,14 @@ import DropDownMenu from "./Menu";
 import Albums from "./Albums";
 import Photos from "./Photos";
 
-export default class MainContainer extends React.Component {
-  state = {};
+const MainContainer = () => {
+  return (
+    <div className="mainContainer">
+      <DropDownMenu />
+      <Albums />
+      <Photos />
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className="mainContainer">
-        <DropDownMenu />
-        <Albums />
-        <Photos />
-      </div>
-    );
-  }
-}
+export default MainContainer;

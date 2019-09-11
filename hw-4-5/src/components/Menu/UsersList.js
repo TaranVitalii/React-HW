@@ -1,16 +1,15 @@
 import React from "react";
+import User from "./User/";
 import "./index.css";
 
-export default function Menu({ users, onClickHandler }) {
+export default function Menu({ users }) {
   return (
     <div className="dropdown">
       Users
       {users && (
         <div className="dropdown-content">
-          {users.map((elem, idex) => (
-            <div key={idex} id={elem.id} onClick={onClickHandler}>
-              {elem.username}
-            </div>
+          {users.map(user => (
+            <User key={user.id} id={user.id} username={user.username} />
           ))}
         </div>
       )}

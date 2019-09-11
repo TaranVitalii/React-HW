@@ -1,5 +1,5 @@
 import React from "react";
-
+import Photo from "./Photo";
 import "./index.css";
 
 export default ({ photos, onClickHandler }) => {
@@ -9,20 +9,15 @@ export default ({ photos, onClickHandler }) => {
       {photos && (
         <div className="photosList">
           {photos.map(photo => (
-            <div
+            <Photo
               className="photo"
               id={photo.id}
               key={photo.id}
               albumid={photo.albumId}
-            >
-              <h4>{photo.title}</h4>
-
-              <img className="photoImg" src={photo.thumbnailUrl} />
-              <div className="likes">
-                {photo.like}
-                <i className="far fa-heart" onClick={onClickHandler}></i>
-              </div>
-            </div>
+              title={photo.title}
+              thumbnailUrl={photo.thumbnailUrl}
+              like={photo.like}
+            />
           ))}
         </div>
       )}
