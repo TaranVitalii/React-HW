@@ -7,6 +7,7 @@ import { saveState } from "../localStorage";
 import { successAction, failureAction } from "../types";
 
 function* postLikeSaga(mainAction) {
+  // i don't now what are doing with this problem
   const result = yield select(getPhotos);
   const action = () =>
     call(() => {
@@ -21,7 +22,6 @@ function* postLikeSaga(mainAction) {
     });
 
   const data = yield action();
-  console.log(data);
   yield putResolve({
     type: successAction(UPDATE_PHOTOS),
     payload: data

@@ -14,7 +14,6 @@ export default store => next => action => {
             : elem
         );
         saveState(action.payload.photoAlbumId, updatePhotos); // save store in LocalStorage
-        console.log("save");
         store.dispatch({
           // after like dispatch action UPDATE_Photos wit new array photos.
           type: UPDATE_PHOTOS,
