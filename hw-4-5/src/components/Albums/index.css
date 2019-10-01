@@ -1,0 +1,21 @@
+.albumsList {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2vw;
+}
+
+.album {
+  background-color: #f9f9f9;
+  min-width: 150px;
+  border: 2px solid black;
+  font-size: 2vw;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.albums {
+  font-size: 4vw;
+
+  text-align: center;
+}
